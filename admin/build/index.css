@@ -1,4 +1,11 @@
-*, ::before, ::after {
+/*!***********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/index.css ***!
+  \***********************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Onest:wght@100..900&display=swap);
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/index.css (1) ***!
+  \***************************************************************************************************************/
+*, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -52,7 +59,7 @@
   --tw-contain-style:  ;
 }
 
-::backdrop {
+::backdrop{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -104,9 +111,13 @@
   --tw-contain-layout:  ;
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
-}/*
+}
+
+/*
 ! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com
-*//*
+*/
+
+/*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
@@ -423,6 +434,7 @@ menu {
 /*
 Reset default styling for dialogs.
 */
+
 dialog {
   padding: 0;
 }
@@ -463,6 +475,7 @@ button,
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
+
 :disabled {
   cursor: default;
 }
@@ -496,149 +509,122 @@ video {
 }
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
+
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-.mb-4 {
-  margin-bottom: 1rem;
-}
-.mb-8 {
+.mb-8{
   margin-bottom: 2rem;
 }
-.mt-8 {
-  margin-top: 2rem;
+.flex{
+  display: flex;
 }
-.block {
-  display: block;
+.size-5{
+  width: 1.25rem;
+  height: 1.25rem;
 }
-.grid {
-  display: grid;
+.min-h-\[400px\]{
+  min-height: 400px;
 }
-.min-h-screen {
-  min-height: 100vh;
+.items-center{
+  align-items: center;
 }
-.max-w-4xl {
-  max-width: 56rem;
+.justify-between{
+  justify-content: space-between;
 }
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+.gap-3{
+  gap: 0.75rem;
 }
-.gap-6 {
+.gap-2{
+  gap: 0.5rem;
+}
+.gap-6{
   gap: 1.5rem;
 }
-.rounded-lg {
+.rounded-lg{
   border-radius: 0.5rem;
 }
-.rounded-md {
-  border-radius: 0.375rem;
+.border-b-2{
+  border-bottom-width: 2px;
 }
-.border {
-  border-width: 1px;
-}
-.border-gray-200 {
+.border-teal-600{
   --tw-border-opacity: 1;
-  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+  border-color: rgb(13 148 136 / var(--tw-border-opacity, 1));
 }
-.bg-blue-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 246 255 / var(--tw-bg-opacity, 1));
+.border-transparent{
+  border-color: transparent;
 }
-.bg-gray-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
-}
-.bg-indigo-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity, 1));
-}
-.bg-white {
+.bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
-.p-4 {
+.bg-gray-50{
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
+.p-3{
+  padding: 0.75rem;
+}
+.p-4{
   padding: 1rem;
 }
-.p-6 {
-  padding: 1.5rem;
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
-.p-8 {
-  padding: 2rem;
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.font-sans{
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+.font-manrope{
+  font-family: Manrope, sans-serif;
 }
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+.font-onest{
+  font-family: Onest, sans-serif;
 }
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-5xl{
+  font-size: 3rem;
+  line-height: 1;
 }
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
-.font-bold {
-  font-weight: 700;
-}
-.font-medium {
+.font-medium{
   font-weight: 500;
 }
-.font-semibold {
-  font-weight: 600;
-}
-.text-blue-600 {
+.text-gray-500{
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
 }
-.text-blue-800 {
+.text-teal-500{
   --tw-text-opacity: 1;
-  color: rgb(30 64 175 / var(--tw-text-opacity, 1));
+  color: rgb(20 184 166 / var(--tw-text-opacity, 1));
 }
-.text-gray-600 {
+.text-gray-600{
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
 }
-.text-gray-900 {
+.text-teal-600{
   --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+  color: rgb(13 148 136 / var(--tw-text-opacity, 1));
 }
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-.shadow-sm {
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.transition-colors {
+.transition-colors{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.hover\:bg-indigo-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity, 1));
-}
-@media (min-width: 768px) {
-
-  .md\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+.hover\:text-teal-600:hover{
+  --tw-text-opacity: 1;
+  color: rgb(13 148 136 / var(--tw-text-opacity, 1));
 }
 
+
+/*# sourceMappingURL=index.css.map*/

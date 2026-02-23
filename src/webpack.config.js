@@ -47,10 +47,5 @@ module.exports = (env, argv) => {
     ],
 
     devtool: isDev ? "source-map" : false,
-
-    externals: {
-      react: "React",
-      "react-dom": "ReactDOM",
-    },
   };
 };
