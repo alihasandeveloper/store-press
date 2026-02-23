@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import {createContext, useContext, useEffect, useState} from "react";
+import demoStores from "../../public/demoStores.json";
 
 // 1. Create the context
 const StoreContext = createContext(null);
@@ -28,6 +29,7 @@ export const useStore = () => {
 // 3. Provider component
 export const StoreProvider = ({ children }) => {
     const [activeTab, setActiveTabState] = useState(getTabFromUrl);
+    const [storeList, setStoreList] = useState(demoStores);
 
     const setActiveTab = (tab) => {
         setActiveTabState(tab);
@@ -37,6 +39,8 @@ export const StoreProvider = ({ children }) => {
     const value = {
         activeTab,
         setActiveTab,
+        storeList,
+        setStoreList
     };
 
     return (

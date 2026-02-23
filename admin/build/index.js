@@ -274,13 +274,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _public_demoStores_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../public/demoStores.json */ "./public/demoStores.json");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
 function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
 
 
 // 1. Create the context
@@ -318,15 +320,21 @@ var StoreProvider = function StoreProvider(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     activeTab = _useState2[0],
     setActiveTabState = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(_public_demoStores_json__WEBPACK_IMPORTED_MODULE_1__),
+    _useState4 = _slicedToArray(_useState3, 2),
+    storeList = _useState4[0],
+    setStoreList = _useState4[1];
   var setActiveTab = function setActiveTab(tab) {
     setActiveTabState(tab);
     pushTabToUrl(tab);
   };
   var value = {
     activeTab: activeTab,
-    setActiveTab: setActiveTab
+    setActiveTab: setActiveTab,
+    storeList: storeList,
+    setStoreList: setStoreList
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(StoreContext.Provider, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(StoreContext.Provider, {
     value: value,
     children: children
   });
@@ -572,7 +580,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_ui_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ui/Button */ "./src/components/ui/Button.jsx");
 /* harmony import */ var _components_modal_ActionModal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/modal/ActionModal */ "./src/components/modal/ActionModal.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _context_StoreContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../context/StoreContext */ "./src/context/StoreContext.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -583,63 +596,247 @@ function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
 
+
 var Store = function Store() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     isModalOpen = _useState2[0],
     setIsModalOpen = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState4 = _slicedToArray(_useState3, 2),
+    currentPage = _useState4[0],
+    setCurrentPage = _useState4[1];
+  var itemsPerPage = 10;
   var openModal = function openModal() {
     return setIsModalOpen(true);
   };
   var closeModal = function closeModal() {
     return setIsModalOpen(false);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  var _useStore = (0,_context_StoreContext__WEBPACK_IMPORTED_MODULE_3__.useStore)(),
+    storeList = _useStore.storeList;
+
+  // Calculate pagination
+  var totalPages = Math.ceil(storeList.length / itemsPerPage);
+  var indexOfLastItem = currentPage * itemsPerPage;
+  var indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  var currentItems = storeList.slice(indexOfFirstItem, indexOfLastItem);
+  var paginate = function paginate(pageNumber) {
+    return setCurrentPage(pageNumber);
+  };
+  console.log(storeList);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "flex flex-col gap-2 max-w-lg",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
         className: "text-4xl text-gray-900 font-onest font-bold",
         children: "Stores"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         className: "font-manrope text-base text-gray-500",
         children: "Global control allows users to easily enable or disable all available blocks together, simplifying block management."
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "mt-6 flex flex-col gap-6",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "flex items-center justify-between gap-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
           className: "text-gray-900 font-onest font-medium text-lg",
           children: "Store List"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_ui_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_ui_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
           size: "small",
           onClick: openModal,
           children: "Add store"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "border border-gray-200 rounded-2xl bg-white p-6",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          children: "Stores"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-          className: "ml-4",
-          children: "Categories"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "border border-gray-200 rounded-2xl bg-white overflow-hidden shadow-sm",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "overflow-x-auto",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("table", {
+            className: "w-full text-left border-collapse",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+                className: "bg-gray-50 border-b border-gray-200",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  className: "px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider",
+                  children: "Title"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  className: "px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider",
+                  children: "Address"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  className: "px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider",
+                  children: "Country"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  className: "px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider",
+                  children: "Latitude"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  className: "px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider",
+                  children: "Longitude"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
+                  className: "px-6 py-4 text-xs font-bold text-gray-500 uppercase tracking-wider text-right",
+                  children: "Action"
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
+              className: "divide-y divide-gray-100",
+              children: currentItems.length > 0 ? currentItems.map(function (store) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
+                  className: "hover:bg-gray-50/80 transition-colors group",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                    className: "px-6 py-4 text-sm text-gray-900 font-semibold",
+                    children: store.title
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("td", {
+                    className: "px-6 py-4 text-sm text-gray-500",
+                    children: [store.address, ", ", store.city, ", ", store.state, " ", store.zip]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                    className: "px-6 py-4 text-sm text-gray-500",
+                    children: store.country
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                    className: "px-6 py-4 text-sm text-gray-600 font-mono",
+                    children: store.latitude
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                    className: "px-6 py-4 text-sm text-gray-600 font-mono",
+                    children: store.longitude
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                    className: "px-6 py-4 text-sm text-right",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "flex justify-end gap-3",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                        className: "text-indigo-600 hover:text-indigo-900 text-sm font-semibold transition-colors",
+                        children: "Edit"
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                        className: "text-red-600 hover:text-red-900 text-sm font-semibold transition-colors",
+                        children: "Delete"
+                      })]
+                    })
+                  })]
+                }, store.id);
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tr", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("td", {
+                  colSpan: "6",
+                  className: "px-6 py-12 text-center text-sm text-gray-500 italic",
+                  children: "No stores found."
+                })
+              })
+            })]
+          })
+        }), totalPages > 1 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "px-6 py-4 bg-white border-t border-gray-200 flex items-center justify-between",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex-1 flex justify-between sm:hidden",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              onClick: function onClick() {
+                return setCurrentPage(function (prev) {
+                  return Math.max(prev - 1, 1);
+                });
+              },
+              disabled: currentPage === 1,
+              className: "relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50",
+              children: "Previous"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              onClick: function onClick() {
+                return setCurrentPage(function (prev) {
+                  return Math.min(prev + 1, totalPages);
+                });
+              },
+              disabled: currentPage === totalPages,
+              className: "ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 disabled:opacity-50",
+              children: "Next"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "hidden sm:flex-1 sm:flex sm:items-center sm:justify-between",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                className: "text-sm text-gray-700",
+                children: ["Showing ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "font-semibold",
+                  children: indexOfFirstItem + 1
+                }), " to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "font-semibold",
+                  children: Math.min(indexOfLastItem, storeList.length)
+                }), " of", ' ', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  className: "font-semibold",
+                  children: storeList.length
+                }), " results"]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("nav", {
+                className: "relative z-0 inline-flex rounded-md shadow-sm -space-x-px",
+                "aria-label": "Pagination",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+                  onClick: function onClick() {
+                    return setCurrentPage(function (prev) {
+                      return Math.max(prev - 1, 1);
+                    });
+                  },
+                  disabled: currentPage === 1,
+                  className: "relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    className: "sr-only",
+                    children: "Previous"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                    className: "h-5 w-5",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20",
+                    fill: "currentColor",
+                    "aria-hidden": "true",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                      fillRule: "evenodd",
+                      d: "M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z",
+                      clipRule: "evenodd"
+                    })
+                  })]
+                }), _toConsumableArray(Array(totalPages)).map(function (_, i) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+                    onClick: function onClick() {
+                      return paginate(i + 1);
+                    },
+                    className: "relative inline-flex items-center px-4 py-2 border text-sm font-medium ".concat(currentPage === i + 1 ? 'z-10 bg-teal-50 border-teal-500 text-teal-600' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'),
+                    children: i + 1
+                  }, i + 1);
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+                  onClick: function onClick() {
+                    return setCurrentPage(function (prev) {
+                      return Math.min(prev + 1, totalPages);
+                    });
+                  },
+                  disabled: currentPage === totalPages,
+                  className: "relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    className: "sr-only",
+                    children: "Next"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+                    className: "h-5 w-5",
+                    xmlns: "http://www.w3.org/2000/svg",
+                    viewBox: "0 0 20 20",
+                    fill: "currentColor",
+                    "aria-hidden": "true",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                      fillRule: "evenodd",
+                      d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+                      clipRule: "evenodd"
+                    })
+                  })]
+                })]
+              })
+            })]
+          })]
         })]
       })]
-    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_modal_ActionModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), isModalOpen && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_modal_ActionModal__WEBPACK_IMPORTED_MODULE_2__["default"], {
       title: "Add New Store",
       onClose: closeModal,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "flex flex-col gap-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
           children: "Store creation form will go here."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "flex justify-end gap-2 mt-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_ui_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_ui_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
             variant: "secondary",
             size: "small",
             onClick: closeModal,
             children: "Cancel"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_ui_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_ui_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
             size: "small",
             onClick: function onClick() {
               console.log("Saving...");
@@ -31384,6 +31581,16 @@ if (false) // removed by dead control flow
   module.exports = __webpack_require__(/*! ./cjs/scheduler.development.js */ "./node_modules/scheduler/cjs/scheduler.development.js");
 }
 
+
+/***/ },
+
+/***/ "./public/demoStores.json"
+/*!********************************!*\
+  !*** ./public/demoStores.json ***!
+  \********************************/
+(module) {
+
+module.exports = /*#__PURE__*/JSON.parse('[{"id":1,"title":"Happy Mart","address":"88 King Road","city":"San Antonio","state":"TX","zip":"78201","country":"USA","website":"https://happymart.com","phone":"+1-210-555-1007","enable":true,"woocommerce":true,"latitude":"29.4241","longitude":"-98.4936"},{"id":2,"title":"Green Mart","address":"123 Main Street","city":"New York","state":"NY","zip":"10001","country":"USA","website":"https://greenmart.com","phone":"+1-212-555-1001","enable":true,"woocommerce":true,"latitude":"40.7128","longitude":"-74.0060"},{"id":3,"title":"Fresh Valley Store","address":"456 Market Road","city":"Los Angeles","state":"CA","zip":"90001","country":"USA","website":"https://freshvalley.com","phone":"+1-310-555-1002","enable":true,"woocommerce":true,"latitude":"34.0522","longitude":"-118.2437"},{"id":4,"title":"Daily Needs Shop","address":"789 Sunset Blvd","city":"Chicago","state":"IL","zip":"60601","country":"USA","website":"https://dailyneeds.com","phone":"+1-773-555-1003","enable":true,"woocommerce":true,"latitude":"41.8781","longitude":"-87.6298"},{"id":5,"title":"Urban Basket","address":"101 City Center","city":"Houston","state":"TX","zip":"77001","country":"USA","website":"https://urbanbasket.com","phone":"+1-713-555-1004","enable":true,"woocommerce":true,"latitude":"29.7604","longitude":"-95.3698"},{"id":6,"title":"Quick Buy Store","address":"22 Lake View Ave","city":"Phoenix","state":"AZ","zip":"85001","country":"USA","website":"https://quickbuy.com","phone":"+1-602-555-1005","enable":true,"woocommerce":true,"latitude":"33.4484","longitude":"-112.0740"},{"id":7,"title":"City Super Shop","address":"55 Central Street","city":"Philadelphia","state":"PA","zip":"19019","country":"USA","website":"https://citysuper.com","phone":"+1-215-555-1006","enable":true,"woocommerce":true,"latitude":"39.9526","longitude":"-75.1652"},{"id":8,"title":"Prime Store","address":"9 River Street","city":"San Diego","state":"CA","zip":"92101","country":"USA","website":"https://primestore.com","phone":"+1-619-555-1008","enable":true,"woocommerce":true,"latitude":"32.7157","longitude":"-117.1611"},{"id":9,"title":"Family Grocery","address":"777 Ocean Ave","city":"Dallas","state":"TX","zip":"75201","country":"USA","website":"https://familygrocery.com","phone":"+1-214-555-1009","enable":true,"woocommerce":true,"latitude":"32.7767","longitude":"-96.7970"},{"id":10,"title":"Mega Mart","address":"400 Broadway","city":"San Jose","state":"CA","zip":"95112","country":"USA","website":"https://megamart.com","phone":"+1-408-555-1010","enable":true,"woocommerce":true,"latitude":"37.3382","longitude":"-121.8863"},{"id":11,"title":"Super Foods","address":"1011 King Street","city":"Austin","state":"TX","zip":"73301","country":"USA","website":"https://superfoods.com","phone":"+1-512-555-1011","enable":true,"woocommerce":true,"latitude":"30.2672","longitude":"-97.7431"},{"id":12,"title":"Fresh Basket","address":"55 Willow Lane","city":"Jacksonville","state":"FL","zip":"32099","country":"USA","website":"https://freshbasket.com","phone":"+1-904-555-1012","enable":true,"woocommerce":true,"latitude":"30.3322","longitude":"-81.6557"},{"id":13,"title":"Green Grocers","address":"222 Pine Street","city":"Fort Worth","state":"TX","zip":"76101","country":"USA","website":"https://greengrocers.com","phone":"+1-817-555-1013","enable":true,"woocommerce":true,"latitude":"32.7555","longitude":"-97.3308"},{"id":14,"title":"Urban Groceries","address":"88 Oak Avenue","city":"Columbus","state":"OH","zip":"43085","country":"USA","website":"https://urbangroceries.com","phone":"+1-614-555-1014","enable":true,"woocommerce":true,"latitude":"39.9612","longitude":"-82.9988"},{"id":15,"title":"Quick Mart","address":"333 Maple Drive","city":"Charlotte","state":"NC","zip":"28201","country":"USA","website":"https://quickmart.com","phone":"+1-704-555-1015","enable":true,"woocommerce":true,"latitude":"35.2271","longitude":"-80.8431"},{"id":16,"title":"City Grocery","address":"777 Elm Street","city":"Detroit","state":"MI","zip":"48201","country":"USA","website":"https://citygrocery.com","phone":"+1-313-555-1016","enable":true,"woocommerce":true,"latitude":"42.3314","longitude":"-83.0458"},{"id":17,"title":"Fresh Mart","address":"99 Cedar Lane","city":"El Paso","state":"TX","zip":"79901","country":"USA","website":"https://freshmart.com","phone":"+1-915-555-1017","enable":true,"woocommerce":true,"latitude":"31.7619","longitude":"-106.4850"},{"id":18,"title":"Mega Grocery","address":"11 Birch Road","city":"Seattle","state":"WA","zip":"98101","country":"USA","website":"https://megagrocery.com","phone":"+1-206-555-1018","enable":true,"woocommerce":true,"latitude":"47.6062","longitude":"-122.3321"},{"id":19,"title":"Family Mart","address":"44 Spruce Street","city":"Denver","state":"CO","zip":"80201","country":"USA","website":"https://familymart.com","phone":"+1-303-555-1019","enable":true,"woocommerce":true,"latitude":"39.7392","longitude":"-104.9903"},{"id":20,"title":"Super Shop","address":"500 Pine Avenue","city":"Washington","state":"DC","zip":"20001","country":"USA","website":"https://supershop.com","phone":"+1-202-555-1020","enable":true,"woocommerce":true,"latitude":"38.9072","longitude":"-77.0369"}]');
 
 /***/ }
 
