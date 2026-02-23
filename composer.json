@@ -1,0 +1,18 @@
+{
+    "name": "alihasan/store-press",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ali Hasan",
+            "email": "alihasandeveloper@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "StorePress\\": "includes/",
+            "StorePress\\Admin\\": "admin/",
+            "StorePress\\PublicFacing\\": "public/"
+        }
+    }
+}
