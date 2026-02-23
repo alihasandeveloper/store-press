@@ -25,6 +25,7 @@ class Admin
     {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
+        add_action('admin_menu', [$this, 'storepress_register_custom_menu']);
     }
 
     /**
@@ -32,7 +33,7 @@ class Admin
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/store-press-admin.css', array(), $this->version, 'all');
+        wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'build/index.css', array(), $this->version, 'all');
     }
 
     /**
@@ -40,7 +41,28 @@ class Admin
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/store-press-admin.js', array('jquery'), $this->version, false);
+        wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'build/index.js', array(), $this->version, true);
+    }
+
+    public function storepress_register_custom_menu()
+    {
+        add_menu_page(
+            'StorePress',
+            'StorePress',
+            'manage_options',
+            'store-press',
+            [$this, 'storepress_admin_page_callback'],
+            'dashicons-location',
+            20
+        );
+    }
+
+    public function storepress_admin_page_callback()
+    {
+        ?>
+        <div id="storepress-dashboard">
+        </div>
+        <?php
     }
 
 }

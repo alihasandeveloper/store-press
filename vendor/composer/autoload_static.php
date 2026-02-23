@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInite6f931e73aa716e2bf3a1a3cdc626d71
 {
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'S' =>
         array (
             'StorePress\\PublicFacing\\' => 24,
             'StorePress\\Admin\\' => 17,
@@ -16,15 +16,15 @@ class ComposerStaticInite6f931e73aa716e2bf3a1a3cdc626d71
     );
 
     public static $prefixDirsPsr4 = array (
-        'StorePress\\PublicFacing\\' => 
+        'StorePress\\PublicFacing\\' =>
         array (
             0 => __DIR__ . '/../..' . '/public',
         ),
-        'StorePress\\Admin\\' => 
+        'StorePress\\Admin\\' =>
         array (
             0 => __DIR__ . '/../..' . '/admin',
         ),
-        'StorePress\\' => 
+        'StorePress\\' =>
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
