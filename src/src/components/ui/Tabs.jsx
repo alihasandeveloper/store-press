@@ -18,10 +18,10 @@ const Tabs = ({ className = '' }) => {
                 <button
                     key={id}
                     onClick={() => setActiveTab(id)}
-                    className={`flex gap-2 items-center text-base font-manrope font-medium p-3 border-b-2 transition-colors
+                    className={`flex gap-2 items-center text-base font-manrope p-3 border-b-2 transition-colors
                         ${activeTab === id
-                            ? "border-teal-600 text-teal-600"
-                            : "border-transparent text-gray-600 hover:text-teal-600"
+                            ? "border-teal-600 text-teal-600 font-semibold"
+                            : "border-transparent text-gray-600 hover:text-teal-600 font-medium "
                         }`}
                 >
                     <span>{icon}</span>

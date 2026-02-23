@@ -23,7 +23,9 @@ const Dashboard = ({className = ''}) => {
     return (
         <div className={className}>
             <Nav className="bg-white py-3 px-6 mb-8"/>
-            {renderPage()}
+            <div className="max-w-screen-lg mx-auto py-5">
+                {renderPage()}
+            </div>
         </div>
     )
 }

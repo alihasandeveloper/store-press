@@ -513,6 +513,10 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
 .mb-8{
   margin-bottom: 2rem;
 }
@@ -525,6 +529,9 @@ video {
 }
 .min-h-\[400px\]{
   min-height: 400px;
+}
+.max-w-screen-lg{
+  max-width: 1024px;
 }
 .items-center{
   align-items: center;
@@ -576,6 +583,10 @@ video {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 .font-sans{
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -599,6 +610,9 @@ video {
 }
 .font-medium{
   font-weight: 500;
+}
+.font-semibold{
+  font-weight: 600;
 }
 .text-gray-500{
   --tw-text-opacity: 1;

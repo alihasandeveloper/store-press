@@ -70,7 +70,10 @@ var Dashboard = function Dashboard(_ref) {
     className: className,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Nav__WEBPACK_IMPORTED_MODULE_0__["default"], {
       className: "bg-white py-3 px-6 mb-8"
-    }), renderPage()]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "max-w-screen-lg mx-auto py-5",
+      children: renderPage()
+    })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dashboard);
@@ -166,7 +169,7 @@ var Tabs = function Tabs(_ref) {
         onClick: function onClick() {
           return setActiveTab(id);
         },
-        className: "flex gap-2 items-center text-base font-manrope font-medium p-3 border-b-2 transition-colors\n                        ".concat(activeTab === id ? "border-teal-600 text-teal-600" : "border-transparent text-gray-600 hover:text-teal-600"),
+        className: "flex gap-2 items-center text-base font-manrope p-3 border-b-2 transition-colors\n                        ".concat(activeTab === id ? "border-teal-600 text-teal-600 font-semibold" : "border-transparent text-gray-600 hover:text-teal-600 font-medium "),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           children: icon
         }), label]
