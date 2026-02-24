@@ -4,6 +4,7 @@ namespace StorePress;
 
 use StorePress\Admin\Admin;
 use StorePress\PublicFacing\PublicFacing;
+use StorePress\Register;
 
 /**
  * The core plugin class.
@@ -43,6 +44,7 @@ class StorePress
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_public_hooks();
+        $this->register_store_post_type();
     }
 
     /**
@@ -114,6 +116,13 @@ class StorePress
     public function get_version()
     {
         return $this->version;
+    }
+
+    private function register_store_post_type()
+    {
+        $register = new Register();
+        $this->loader->add_action('init', $register, 'register_post_type');
+        $this->loader->add_action('init', $register, 'register_taxonomy');
     }
 
 }

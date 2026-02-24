@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Button from "../components/ui/Button";
 import ActionModal from "../components/modal/ActionModal";
-import {useStore} from "../context/StoreContext";
+import { useStore } from "../context/StoreContext";
+import Label from "../components/form/Label";
+import Input from "../components/form/Input";
 
 const Store = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +29,7 @@ const Store = () => {
     return (
         <div>
             <div className="flex flex-col gap-2 max-w-lg">
-                <h2 className="text-4xl text-gray-900 font-onest font-bold">Stores</h2>
+                <h2 className="text-4xl text-gray-900 font-onest font-bold">Store</h2>
                 <p className="font-manrope text-base text-gray-500">
                     Global control allows users to easily enable or disable all available blocks together, simplifying block management.
                 </p>
@@ -122,11 +124,10 @@ const Store = () => {
                                             <button
                                                 key={i + 1}
                                                 onClick={() => paginate(i + 1)}
-                                                className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${
-                                                    currentPage === i + 1
+                                                className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${currentPage === i + 1
                                                         ? 'z-10 bg-teal-50 border-teal-500 text-teal-600'
                                                         : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'
-                                                }`}
+                                                    }`}
                                             >
                                                 {i + 1}
                                             </button>
@@ -150,16 +151,128 @@ const Store = () => {
             </div>
 
             {isModalOpen && (
-                <ActionModal 
-                    title="Add New Store" 
+                <ActionModal
+                    title="Add New Store"
                     onClose={closeModal}
                 >
                     <div className="flex flex-col gap-4">
-                        <p>Store creation form will go here.</p>
-                        <div className="flex justify-end gap-2 mt-4">
-                            <Button variant="secondary" size="small" onClick={closeModal}>Cancel</Button>
-                            <Button size="small" onClick={() => { console.log("Saving..."); closeModal(); }}>Save Store</Button>
-                        </div>
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                console.log("Saving...");
+                                closeModal();
+                            }}
+                            className="flex flex-col gap-4"
+                        >
+                            {/* Store Name */}
+                            <div className="flex flex-col gap-2">
+                               <Label text="Store Name" id="store_name"/>
+                                <Input name="store_name" placeholder="Enter store name" onChange={(e) => {console.log(e.target.value)}}/>
+                            </div>
+
+                            {/* Address */}
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm text-gray-900 font-manrope font-medium">
+                                    Address
+                                </label>
+                                <input
+                                    name="address"
+                                    placeholder="Street address"
+                                    className="py-3 px-4 border border-gray-200 focus:border-teal-500 rounded-lg focus:ring-1 focus:ring-teal-500"
+                                />
+                            </div>
+
+                            {/* City & Zip */}
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-gray-900 font-manrope font-medium">
+                                        City
+                                    </label>
+                                    <input
+                                        name="city"
+                                        placeholder="City"
+                                        className="py-3 px-4 border border-gray-200 focus:border-teal-500 rounded-lg focus:ring-1 focus:ring-teal-500"
+                                    />
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-gray-900 font-manrope font-medium">
+                                        Zip Code
+                                    </label>
+                                    <input
+                                        name="zip"
+                                        placeholder="Zip"
+                                        className="py-3 px-4 border border-gray-200 focus:border-teal-500 rounded-lg focus:ring-1 focus:ring-teal-500"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* State & Country */}
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-gray-900 font-manrope font-medium">
+                                        State
+                                    </label>
+                                    <input
+                                        name="state"
+                                        placeholder="State"
+                                        className="py-3 px-4 border border-gray-200 focus:border-teal-500 rounded-lg focus:ring-1 focus:ring-teal-500"
+                                    />
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-gray-900 font-manrope font-medium">
+                                        Country
+                                    </label>
+                                    <input
+                                        name="country"
+                                        placeholder="Country"
+                                        className="py-3 px-4 border border-gray-200 focus:border-teal-500 rounded-lg focus:ring-1 focus:ring-teal-500"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Latitude & Longitude */}
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-gray-900 font-manrope font-medium">
+                                        Latitude
+                                    </label>
+                                    <input
+                                        name="latitude"
+                                        placeholder="29.4241"
+                                        className="py-3 px-4 border border-gray-200 focus:border-teal-500 rounded-lg focus:ring-1 focus:ring-teal-500"
+                                    />
+                                </div>
+
+                                <div className="flex flex-col gap-2">
+                                    <label className="text-sm text-gray-900 font-manrope font-medium">
+                                        Longitude
+                                    </label>
+                                    <input
+                                        name="longitude"
+                                        placeholder="-98.4936"
+                                        className="py-3 px-4 border border-gray-200 focus:border-teal-500 rounded-lg focus:ring-1 focus:ring-teal-500"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Buttons Inside Form */}
+                            <div className="flex justify-end gap-2 mt-4">
+                                <Button
+                                    type="button"
+                                    variant="secondary"
+                                    size="small"
+                                    onClick={closeModal}
+                                >
+                                    Cancel
+                                </Button>
+
+                                <Button type="submit" size="small">
+                                    Save Store
+                                </Button>
+                            </div>
+                        </form>
                     </div>
                 </ActionModal>
             )}

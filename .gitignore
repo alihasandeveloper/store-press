@@ -19,8 +19,8 @@ lerna-debug.log*
 *.local
 
 # Node dependencies
-src/node_modules/
-src/dist/
+app/node_modules/
+app/dist/
 
 # Vendor (Composer)
 vendor/
